@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'What We Do', href: '#portfolio' },
+  { label: 'Work', href: '#portfolio' },
+  { label: 'Services', href: '#services' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Our Work', href: '#portfolio' },
+  { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -13,45 +14,38 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
         scrolled
-          ? 'bg-[#F4F2EE]/92 backdrop-blur-xl border-b border-[rgba(17,17,17,0.06)]'
+          ? 'bg-white/90 backdrop-blur-xl border-b border-black/10'
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-[1200px] mx-auto px-6 lg:px-8 h-[72px] flex items-center justify-between">
-        {/* Logo */}
+      <nav className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-[76px] sm:h-[88px] flex items-center justify-between gap-4">
         <a
           href="#"
-          className="font-display text-xl tracking-tight"
+          className="text-[22px] sm:text-[26px] lg:text-[28px] tracking-tight shrink-0"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <span className="font-medium text-ink">Workwith</span>
-          <span className="font-bold text-cobalt">Utsav</span>
+          <span className="font-semibold text-ink">Workwith</span>
+          <span className="font-semibold text-coral">Utsav</span>
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-8 xl:gap-10">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -60,40 +54,38 @@ export default function Navigation() {
                 e.preventDefault();
                 scrollToSection(link.href);
               }}
-              className="font-body text-sm font-medium text-ink hover:text-cobalt transition-colors duration-200 link-underline"
+              className="text-[16px] xl:text-[17px] font-semibold text-ink hover:text-coral transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="#pricing"
+            href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#pricing');
+              scrollToSection('#contact');
             }}
-            className="btn-primary text-sm py-2.5 px-6"
+            className="btn-primary !text-[15px] !py-3 !px-6"
           >
-            Get Started
+            Go Live Now
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
         <button
-          className="md:hidden p-2 -mr-2"
+          className="lg:hidden p-2 -mr-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-[#F4F2EE]/98 backdrop-blur-xl border-b border-[rgba(17,17,17,0.06)] transition-all duration-300 overflow-hidden ${
-          mobileOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white border-b border-black/10 transition-all duration-300 overflow-hidden ${
+          mobileOpen ? 'max-h-[480px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="px-6 py-6 flex flex-col gap-4">
+        <div className="px-5 py-6 flex flex-col gap-5">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -102,20 +94,20 @@ export default function Navigation() {
                 e.preventDefault();
                 scrollToSection(link.href);
               }}
-              className="font-body text-base font-medium text-ink hover:text-cobalt transition-colors"
+              className="text-lg font-semibold text-ink"
             >
               {link.label}
             </a>
           ))}
           <a
-            href="#pricing"
+            href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#pricing');
+              scrollToSection('#contact');
             }}
-            className="btn-primary text-sm py-3 px-6 mt-2 text-center"
+            className="btn-primary text-base mt-2 text-center"
           >
-            Get Started
+            Go Live Now
           </a>
         </div>
       </div>

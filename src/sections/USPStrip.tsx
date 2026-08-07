@@ -1,101 +1,72 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Zap, Clock } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const usps = [
   {
-    icon: Zap,
-    title: 'Everything Included',
+    title: 'Everything included',
     description:
       "We don't just design your site. We buy your domain, set up your hosting, build your website, and hand you a fully live product. One package, zero hassle.",
+    color: 'bg-coral',
   },
   {
-    icon: Clock,
-    title: '48-Hour Delivery',
+    title: '48-hour delivery',
     description:
       'We design, build, and deliver your finished website in under 48 hours. No endless revisions. No waiting weeks. Your site, live in two days.',
+    color: 'bg-gold',
   },
 ];
 
 export default function USPStrip() {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, i) => {
-        if (card) {
-          gsap.fromTo(
-            card,
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              delay: i * 0.15,
-              ease: 'power3.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none none',
-              },
-            }
-          );
-
-          // Icon pulse
-          const icon = card.querySelector('.icon-wrapper');
-          if (icon) {
-            gsap.fromTo(
-              icon,
-              { scale: 0.7 },
-              {
-                scale: 1,
-                duration: 0.6,
-                delay: i * 0.15 + 0.2,
-                ease: 'back.out(1.7)',
-                scrollTrigger: {
-                  trigger: card,
-                  start: 'top 85%',
-                  toggleActions: 'play none none none',
-                },
-              }
-            );
-          }
+      gsap.fromTo(
+        '[data-usp]',
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
         }
-      });
+      );
     }, sectionRef);
-
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      id="why-us"
-      className="bg-ink py-20 lg:py-28"
-    >
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-        {/* Section Label */}
-        <p className="section-label text-cobalt mb-10">WHY CHOOSE US</p>
+    <section ref={sectionRef} id="why-us" className="bg-paper py-14 sm:py-20 lg:py-28">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-16 mb-10 sm:mb-14">
+          <p className="section-label">Why work with us</p>
+          <h2 className="display-lg font-semibold text-ink text-balance">
+            We don’t just ship sites.
+            <br />
+            We make going online <em>feel easy.</em>
+          </h2>
+        </div>
 
-        {/* USP Cards */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
-          {usps.map((usp, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          {usps.map((usp) => (
             <div
               key={usp.title}
-              ref={(el) => { cardsRef.current[i] = el; }}
-              className="opacity-0"
+              data-usp
+              className="rounded-morez border border-black/10 p-6 sm:p-8 lg:p-10 opacity-0"
             >
-              <div className="icon-wrapper w-14 h-14 rounded-full bg-cobalt/15 flex items-center justify-center mb-6">
-                <usp.icon size={28} className="text-cobalt" strokeWidth={1.8} />
-              </div>
-              <h3 className="font-display font-semibold text-2xl lg:text-3xl text-[#F4F2EE] mb-4">
+              <span className={`inline-block w-3 h-3 rounded-full ${usp.color} mb-5 sm:mb-6`} />
+              <h3 className="display-md font-semibold text-ink mb-3 sm:mb-4">
                 {usp.title}
               </h3>
-              <p className="font-body text-[#F4F2EE]/70 leading-relaxed text-base">
+              <p className="text-[15px] sm:text-[17px] leading-relaxed text-quiet">
                 {usp.description}
               </p>
             </div>

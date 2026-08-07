@@ -5,14 +5,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['"Space Grotesk"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
+        sans: ['Geist', 'Arial', 'Helvetica', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
       },
       colors: {
-        paper: '#F4F2EE',
-        ink: '#111111',
-        cobalt: '#2F6BFF',
-        'text-secondary': '#6F6F6F',
+        ink: '#000000',
+        paper: '#ffffff',
+        coral: '#eb5f69',
+        mauve: '#bc80bb',
+        gold: '#f9c763',
+        sage: '#97c594',
+        sky: '#669aca',
+        quiet: '#5c5c5c',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -46,16 +50,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -63,13 +57,7 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         xs: "calc(var(--radius) - 6px)",
-        '2xl': '18px',
-        '3xl': '22px',
-      },
-      boxShadow: {
-        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        card: '0 18px 45px rgba(0, 0, 0, 0.08)',
-        hover: '0 24px 60px rgba(0, 0, 0, 0.12)',
+        morez: '16px',
       },
       keyframes: {
         "accordion-down": {
@@ -80,15 +68,15 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "caret-blink": {
-          "0%,70%,100%": { opacity: "1" },
-          "20%,50%": { opacity: "0" },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        marquee: 'marquee 28s linear infinite',
       },
     },
   },

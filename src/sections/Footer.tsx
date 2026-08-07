@@ -1,9 +1,10 @@
 import { Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const footerLinks = [
-  { label: 'What We Do', href: '#portfolio' },
+  { label: 'Work', href: '#portfolio' },
+  { label: 'Services', href: '#services' },
+  { label: 'Testimonials', href: '#testimonials' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'Our Work', href: '#portfolio' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -15,18 +16,13 @@ const socialLinks = [
 
 export default function Footer() {
   const scrollToSection = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-paper border-t border-[rgba(17,17,17,0.06)]">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-8 py-14 lg:py-16">
-        {/* Main Footer Row */}
-        <div className="grid md:grid-cols-3 gap-10 lg:gap-16 mb-10">
-          {/* Logo + Tagline */}
+    <footer className="bg-paper border-t border-black/10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 lg:gap-16 mb-10 sm:mb-12">
           <div>
             <a
               href="#"
@@ -34,21 +30,18 @@ export default function Footer() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-block font-display text-xl tracking-tight mb-4"
+              className="inline-block text-xl sm:text-2xl tracking-tight mb-4"
             >
-              <span className="font-medium text-ink">Workwith</span>
-              <span className="font-bold text-cobalt">Utsav</span>
+              <span className="font-semibold text-ink">Workwith</span>
+              <span className="font-semibold text-coral">Utsav</span>
             </a>
-            <p className="font-body text-sm text-text-secondary leading-relaxed max-w-[260px]">
+            <p className="text-sm text-quiet leading-relaxed max-w-[280px]">
               Complete web design packages. Delivered in 48 hours.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <p className="font-body text-xs font-semibold uppercase tracking-[0.08em] text-text-secondary mb-4">
-              Quick Links
-            </p>
+            <p className="font-mono-label text-quiet mb-4">Quick links</p>
             <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.label}>
@@ -58,7 +51,7 @@ export default function Footer() {
                       e.preventDefault();
                       scrollToSection(link.href);
                     }}
-                    className="font-body text-sm text-ink hover:text-cobalt transition-colors"
+                    className="text-sm text-ink hover:text-coral transition-colors"
                   >
                     {link.label}
                   </a>
@@ -67,18 +60,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <p className="font-body text-xs font-semibold uppercase tracking-[0.08em] text-text-secondary mb-4">
-              Follow Us
-            </p>
+            <p className="font-mono-label text-quiet mb-4">Follow</p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-full border border-[rgba(17,17,17,0.1)] flex items-center justify-center hover:bg-cobalt hover:border-cobalt transition-all duration-300 group"
+                  className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center hover:bg-coral hover:border-coral transition-all duration-300 group"
                 >
                   <social.icon
                     size={16}
@@ -90,16 +80,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-[rgba(17,17,17,0.08)] pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="font-body text-xs text-text-secondary">
-              © 2026 WorkwithUtsav. All rights reserved.
-            </p>
-            <p className="font-body text-xs text-text-secondary/60">
-              Designed with care.
-            </p>
-          </div>
+        <div className="border-t border-black/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-quiet">
+            © 2026 WorkwithUtsav. All rights reserved.
+          </p>
+          <p className="font-mono text-[11px] text-quiet/70 uppercase tracking-wider">
+            Made to ship fast
+          </p>
         </div>
       </div>
     </footer>

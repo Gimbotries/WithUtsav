@@ -1,72 +1,44 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ArrowRight } from 'lucide-react';
-
-const floatingPills = [
-  { label: 'Design', top: '15%', left: '-8%', delay: 0.7 },
-  { label: 'Domain + Hosting', top: '65%', right: '-12%', delay: 0.85 },
-  { label: '48–72h Delivery', bottom: '5%', left: '5%', delay: 1.0 },
-];
+import heroPortrait from '../hero-portrait.jpg';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  const subRef = useRef<HTMLParagraphElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-  const pillsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-      // Headline words animation
-      if (headlineRef.current) {
-        const words = headlineRef.current.querySelectorAll('.word');
-        tl.fromTo(
-          words,
-          { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, stagger: 0.06 },
-          0.2
-        );
-      }
-
-      // Subheadline
       tl.fromTo(
-        subRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7 },
-        0.5
-      );
-
-      // CTA buttons
-      tl.fromTo(
-        ctaRef.current,
-        { y: 25, opacity: 0 },
+        '[data-hero="brand"]',
+        { y: 24, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6 },
-        0.7
-      );
-
-      // Hero image
-      tl.fromTo(
-        imageRef.current,
-        { y: 70, scale: 0.95, opacity: 0 },
-        { y: 0, scale: 1, opacity: 1, duration: 1.1 },
-        0.25
-      );
-
-      // Floating pills
-      pillsRef.current.forEach((pill, i) => {
-        if (pill) {
-          const isLeft = i !== 1;
-          tl.fromTo(
-            pill,
-            { x: isLeft ? -40 : 40, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.7, ease: 'back.out(1.4)' },
-            0.8 + i * 0.12
-          );
-        }
-      });
+        0.1
+      )
+        .fromTo(
+          '[data-hero="line"]',
+          { y: 36, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.7, stagger: 0.07 },
+          0.18
+        )
+        .fromTo(
+          '[data-hero="copy"]',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.6 },
+          0.5
+        )
+        .fromTo(
+          '[data-hero="cta"]',
+          { y: 16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.55 },
+          0.62
+        )
+        .fromTo(
+          '[data-hero="image"]',
+          { y: 28, opacity: 0, scale: 0.98 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.9 },
+          0.25
+        );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -76,85 +48,83 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="hero"
-      className="relative min-h-[100dvh] bg-paper flex items-center overflow-hidden"
+      className="relative bg-paper overflow-hidden min-h-[100svh] lg:min-h-[100dvh] flex items-center"
     >
-      <div className="w-full max-w-[1200px] mx-auto px-6 lg:px-8 pt-[100px] pb-16 lg:pb-0">
-        <div className="grid lg:grid-cols-[55%_45%] gap-8 lg:gap-4 items-center">
-          {/* Left Content */}
-          <div className="relative z-10 order-2 lg:order-1">
-            <h1
-              ref={headlineRef}
-              className="font-display font-bold text-ink leading-[0.95] tracking-[-0.03em]"
-              style={{ fontSize: 'clamp(42px, 6.5vw, 84px)' }}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-16 -right-16 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] rounded-full bg-coral/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[240px] sm:w-[320px] h-[240px] sm:h-[320px] rounded-full bg-gold/20 blur-3xl" />
+      </div>
+
+      <div className="relative w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-[92px] sm:pt-[108px] pb-10 sm:pb-14 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-16 items-center">
+          <div className="order-2 lg:order-1 max-w-[560px] mx-auto lg:mx-0 text-center lg:text-left">
+            <p
+              data-hero="brand"
+              className="font-mono-label text-coral mb-3 sm:mb-4 opacity-0 text-[12px] sm:text-[14px]"
             >
-              <span className="word inline-block">A</span>{' '}
-              <span className="word inline-block">Complete</span>{' '}
-              <span className="word inline-block">Web</span>{' '}
-              <span className="word inline-block">Design</span>{' '}
-              <span className="word inline-block text-cobalt">Package.</span>
+              WorkwithUtsav
+            </p>
+
+            <h1 className="display-xl font-semibold text-ink text-balance">
+              <span data-hero="line" className="block opacity-0">
+                Complete websites.
+              </span>
+              <span data-hero="line" className="block opacity-0">
+                Domain to design.
+              </span>
+              <span data-hero="line" className="block opacity-0">
+                Live in <em>48 hours.</em>
+              </span>
             </h1>
 
             <p
-              ref={subRef}
-              className="mt-6 lg:mt-8 font-body text-text-secondary leading-relaxed max-w-[480px]"
-              style={{ fontSize: 'clamp(15px, 1.2vw, 18px)' }}
+              data-hero="copy"
+              className="mt-4 sm:mt-5 max-w-[460px] mx-auto lg:mx-0 text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed text-quiet opacity-0"
             >
-              From domain to design to going live — WorkwithUtsav builds and
-              delivers your website in under 48 hours, with everything handled
-              for you.
+              From domain to hosting to going live — WorkwithUtsav builds and
+              delivers your website with everything handled for you. No jargon.
+              No waiting weeks.
             </p>
 
-            <div ref={ctaRef} className="mt-8 lg:mt-10 flex flex-col sm:flex-row items-start gap-4">
-              <a href="#pricing" className="btn-primary group">
-                Get Your Website
+            <div
+              data-hero="cta"
+              className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4 opacity-0"
+            >
+              <a href="#pricing" className="btn-primary group w-full sm:w-auto">
+                Get your website
                 <ArrowRight
                   size={18}
-                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
                 />
               </a>
-              <a
-                href="#portfolio"
-                className="font-body text-sm font-medium text-ink hover:text-cobalt transition-colors link-underline py-2"
-              >
-                See Our Work
+              <a href="#portfolio" className="btn-outline w-full sm:w-auto">
+                See our work
               </a>
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div
-              ref={imageRef}
-              className="relative w-[280px] sm:w-[340px] lg:w-[420px] xl:w-[460px]"
-            >
-              <div className="rounded-3xl overflow-hidden shadow-card">
-                <img
-                  src="/hero-portrait.jpg"
-                  alt="Professional web designer at WorkwithUtsav"
-                  className="w-full h-auto object-cover aspect-[3/4]"
-                  loading="eager"
-                />
-              </div>
-
-              {/* Floating Pills */}
-              {floatingPills.map((pill, i) => (
-                <div
-                  key={pill.label}
-                  ref={(el) => { pillsRef.current[i] = el; }}
-                  className="absolute bg-white rounded-full shadow-card px-4 py-2.5 flex items-center gap-2"
-                  style={{
-                    top: pill.top,
-                    left: pill.left,
-                    right: pill.right,
-                    bottom: pill.bottom,
-                  }}
-                >
-                  <span className="w-2.5 h-2.5 rounded-full bg-cobalt flex-shrink-0" />
-                  <span className="font-body text-sm font-medium text-ink whitespace-nowrap">
-                    {pill.label}
-                  </span>
-                </div>
-              ))}
+          <div
+            data-hero="image"
+            className="relative order-1 lg:order-2 opacity-0 w-full max-w-[240px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px] xl:max-w-[400px] mx-auto"
+          >
+            <div className="rounded-morez overflow-hidden border border-black/10 bg-[#f3f3f3] shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
+              <img
+                src={heroPortrait}
+                alt="The WorkwithUtsav team"
+                className="w-full h-auto object-cover aspect-[3/4] [image-rendering:-webkit-optimize-contrast]"
+                loading="eager"
+                decoding="async"
+                width={1400}
+                height={1921}
+              />
+            </div>
+            <div className="absolute -bottom-3 -left-2 sm:-left-4 bg-ink text-white rounded-morez px-3 sm:px-4 py-2.5 sm:py-3 shadow-lg max-w-[85%]">
+              <p className="font-mono-label text-coral text-[10px] sm:text-[11px] mb-0.5">
+                Delivery
+              </p>
+              <p className="text-xs sm:text-sm font-semibold leading-snug">
+                48–72 hours, start to live
+              </p>
             </div>
           </div>
         </div>
