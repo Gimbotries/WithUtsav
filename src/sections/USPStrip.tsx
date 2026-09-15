@@ -8,13 +8,13 @@ const usps = [
   {
     title: 'Everything included',
     description:
-      "We don't just design your site. We buy your domain, set up your hosting, build your website, and hand you a fully live product. One package, zero hassle.",
+      'We don’t just design a page. We buy the domain, set up hosting, build the clinic site, add Book Now, and connect WhatsApp confirmations. One package. Zero technical mess for your staff.',
     color: 'bg-coral',
   },
   {
     title: '48-hour delivery',
     description:
-      'We design, build, and deliver your finished website in under 48 hours. No endless revisions. No waiting weeks. Your site, live in two days.',
+      'We design, build, and deliver a finished clinic website in under 48 hours. No endless revisions. No waiting weeks. Your practice, live in two days.',
     color: 'bg-gold',
   },
 ];
@@ -44,10 +44,10 @@ export default function USPStrip() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="why-us" className="bg-paper py-14 sm:py-20 lg:py-28">
+    <section ref={sectionRef} id="included" className="bg-paper py-14 sm:py-20 lg:py-28">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-16 mb-10 sm:mb-14">
-          <p className="section-label">Why work with us</p>
+          <p className="section-label">Why clinics choose us</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
             We don’t just ship sites.
             <br />

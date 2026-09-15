@@ -7,16 +7,16 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: 'Website creation',
+    title: 'Clinic website',
     description:
-      'Custom sites built for your business — assembled, tested, polished, and delivered ready to perform.',
+      'A professional practice site — assembled, tested, and delivered ready to convert searches into appointments. Built for doctors, not generic businesses.',
     accent: 'text-coral',
     bar: 'bg-coral',
   },
   {
-    title: 'Design that sticks',
+    title: 'Found when they search',
     description:
-      'Clean, professional visuals that look sharp on every screen and stay on-brand from first click to contact.',
+      'Your name, specialty, and locality — so the clinic shows up, and the website is the next click. Maps plus a live site patients actually trust.',
     accent: 'text-mauve',
     bar: 'bg-mauve',
   },
@@ -28,9 +28,9 @@ const services = [
     bar: 'bg-sky',
   },
   {
-    title: 'Payments & logins',
+    title: 'Booking & WhatsApp',
     description:
-      'Need checkouts, auth, or AI features? The elaborate package covers the functionality behind a static page.',
+      'Online Book Now, plus WhatsApp automation: patients confirm a slot and receive a booking message automatically. Reception stops copy-pasting chats.',
     accent: 'text-sage',
     bar: 'bg-sage',
   },
@@ -66,13 +66,14 @@ export default function Services() {
         <div className="max-w-[720px] mb-10 sm:mb-14 lg:mb-16">
           <p className="section-label mb-3 sm:mb-4">What we do best</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
-            Services,
+            Built for clinics,
             <br />
-            <em>built around you.</em>
+            <em>not for everyone.</em>
           </h2>
           <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] leading-relaxed text-quiet">
-            From a clean landing page to a site with payments and logins — we
-            handle the full stack so your online presence matches your ambition.
+            From a clean practice page to payments, logins, and WhatsApp booking —
+            we handle the full stack so your online presence matches the care you
+            give in the room.
           </p>
         </div>
 
@@ -94,7 +95,7 @@ export default function Services() {
                 href="#contact"
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink link-underline"
               >
-                Discover
+                Get a quote
                 <ArrowUpRight size={16} />
               </a>
             </article>

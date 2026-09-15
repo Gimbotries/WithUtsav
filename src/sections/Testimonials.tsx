@@ -1,50 +1,27 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Quote } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
     quote:
-      'They took Lavadany from idea to a live storefront in two days. Domain, hosting, design — everything was handled. Our first sales started the same week we launched.',
-    name: 'Anya Mehra',
-    role: 'Founder, Lavadany',
-    site: 'lavadany.com',
-    url: 'https://lavadany.com',
-    accent: 'bg-coral',
-    soft: 'bg-[#fff1f2]',
-  },
-  {
-    quote:
-      'WorkwithUtsav understood the vibe we wanted for Therubh immediately. The site feels premium, loads fast, and finally matches how we talk about the brand.',
-    name: 'Rohan Kapoor',
-    role: 'Creative Director, Therubh',
-    site: 'therubh.com',
-    url: 'https://therubh.com',
-    accent: 'bg-mauve',
-    soft: 'bg-[#f7f0f8]',
-  },
-  {
-    quote:
-      'Patients now find us online without confusion. The site is clean, trustworthy, and easy to navigate — exactly what a medical practice needs. Delivered ahead of schedule.',
+      'Reception used to spend half the morning answering the same three questions — timings, address, “do you take appointments?” Now most people just book from the site. We still get WhatsApp messages, but they’re usually about something specific, not basic info.',
     name: 'Dr. Vaidehi Dande',
-    role: 'Clinic Principal',
+    role: 'Paediatric practice, Mumbai',
     site: 'drvaidehidande.com',
     url: 'https://drvaidehidande.com',
-    accent: 'bg-sage',
     soft: 'bg-[#f1f7f1]',
   },
   {
     quote:
-      'As a trade business, we needed something that works on phones when customers call. Miller Electrical’s new site books enquiries properly and looks sharp. Worth every rupee.',
-    name: 'James Miller',
-    role: 'Owner, Miller Electrical',
-    site: 'millerelectrical.net',
-    url: 'https://millerelectrical.net',
-    accent: 'bg-sky',
-    soft: 'bg-[#eef5fa]',
+      'I didn’t want a flashy brochure. I needed something patients could open on their phone between OPD hours and actually book. Utsav kept it simple — Book Appointment sits on the homepage, no hunting. That alone cut a lot of back-and-forth on WhatsApp.',
+    name: 'Priya M.',
+    role: 'Front desk lead, dental clinic · West Mumbai',
+    site: null,
+    url: null,
+    soft: 'bg-[#faf4f6]',
   },
 ];
 
@@ -80,27 +57,22 @@ export default function Testimonials() {
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-[720px] mb-10 sm:mb-14">
-          <p className="section-label mb-3 sm:mb-4">Testimonials</p>
+          <p className="section-label mb-3 sm:mb-4">From clinic owners</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
-            Loved by the
+            What changed after
             <br />
-            businesses we <em>built for.</em>
+            the site went <em>live.</em>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
           {testimonials.map((item) => (
             <article
-              key={item.site}
+              key={item.name}
               data-testimonial
               className={`rounded-morez border border-black/8 p-6 sm:p-8 opacity-0 ${item.soft}`}
             >
-              <div className="flex items-center justify-between mb-5">
-                <span
-                  className={`w-10 h-10 rounded-full ${item.accent} text-white flex items-center justify-center`}
-                >
-                  <Quote size={18} />
-                </span>
+              {item.site && item.url ? (
                 <a
                   href={item.url}
                   target="_blank"
@@ -109,9 +81,13 @@ export default function Testimonials() {
                 >
                   {item.site}
                 </a>
-              </div>
+              ) : (
+                <p className="font-mono text-[12px] sm:text-[13px] text-quiet">
+                  Dental clinic site
+                </p>
+              )}
 
-              <p className="text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed text-ink mb-6">
+              <p className="mt-5 text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed text-ink mb-6">
                 “{item.quote}”
               </p>
 

@@ -7,16 +7,55 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    name: 'Lavadany',
-    urlLabel: 'lavadany.com',
-    caption: 'Custom e-commerce design & build',
-    logo: '/logos/lavadany.png',
-    preview: '/preview-lavadany.jpg',
-    url: 'https://lavadany.com',
-    tint: 'bg-[#f3f7fb]',
+    name: 'Dr. Vaidehi Dande',
+    urlLabel: 'drvaidehidande.com',
+    caption: 'Paediatric clinic, Mumbai · Make an Appointment on the homepage',
+    logo: '/logos/drvaidehidande.svg',
+    preview: '/preview-drvaidehidande.jpg',
+    url: 'https://drvaidehidande.com',
+    tint: 'bg-[#f3f8f4]',
+    logoClass: 'w-[72%] max-w-[280px] h-auto',
+    accent: 'text-sage',
+    ring: 'group-hover:ring-sage/50',
+    labelClass: 'text-quiet',
+  },
+  {
+    name: 'Tru Smile Dental',
+    urlLabel: 'trusmiledentist.in',
+    caption: 'Dental clinic, Jogeshwari West, Mumbai · Direct Book Appointment',
+    logo: '/logos/trusmile.png',
+    preview: '/preview-trusmile.jpg',
+    url: 'https://trusmiledentist.in',
+    tint: 'bg-[#f7f4f6]',
+    logoClass: 'w-[82%] max-w-[320px] h-auto',
+    accent: 'text-[#c2185b]',
+    ring: 'group-hover:ring-[#c2185b]/35',
+    labelClass: 'text-quiet',
+  },
+  {
+    name: 'Dr. Richa Samadhiya',
+    urlLabel: 'drrichasamadhiya.com',
+    caption: 'Gynecologist & IVF, Bhopal · Book Your Consultation',
+    logo: '/logos/drricha.png',
+    preview: '/preview-drricha.jpg',
+    url: 'https://drrichasamadhiya.com',
+    tint: 'bg-[#faf5f8]',
+    logoClass: 'w-[92%] max-w-[380px] h-auto',
+    accent: 'text-mauve',
+    ring: 'group-hover:ring-mauve/40',
+    labelClass: 'text-quiet',
+  },
+  {
+    name: 'Dr. Disha Baxi · Skintimacy',
+    urlLabel: 'drdishabaxi.com',
+    caption: 'Dermatology clinic, Indore · Book Appointment on the homepage',
+    logo: '/logos/drdisha.png',
+    preview: '/preview-drdisha.jpg',
+    url: 'https://drdishabaxi.com',
+    tint: 'bg-[#f3f8f4]',
     logoClass: 'w-[78%] max-w-[300px] h-auto',
-    accent: 'text-sky',
-    ring: 'group-hover:ring-sky/40',
+    accent: 'text-sage',
+    ring: 'group-hover:ring-sage/50',
     labelClass: 'text-quiet',
   },
   {
@@ -30,32 +69,6 @@ const projects = [
     logoClass: 'w-[58%] max-w-[220px] h-auto',
     accent: 'text-[#9a3b3b]',
     ring: 'group-hover:ring-[#9a3b3b]/35',
-    labelClass: 'text-quiet',
-  },
-  {
-    name: 'Dr. Vaidehi Dande',
-    urlLabel: 'drvaidehidande.com',
-    caption: 'Professional practice website',
-    logo: '/logos/drvaidehidande.svg',
-    preview: '/preview-drvaidehidande.jpg',
-    url: 'https://drvaidehidande.com',
-    tint: 'bg-[#f3f8f4]',
-    logoClass: 'w-[72%] max-w-[280px] h-auto',
-    accent: 'text-sage',
-    ring: 'group-hover:ring-sage/50',
-    labelClass: 'text-quiet',
-  },
-  {
-    name: 'Miller Electrical',
-    urlLabel: 'millerelectrical.net',
-    caption: 'Service-based business site',
-    logo: '/logos/millerelectrical.png',
-    preview: '/preview-miller.jpg',
-    url: 'https://millerelectrical.net',
-    tint: 'bg-[#f2f6fb]',
-    logoClass: 'w-[82%] max-w-[340px] h-auto',
-    accent: 'text-sky',
-    ring: 'group-hover:ring-sky/40',
     labelClass: 'text-quiet',
   },
 ];
@@ -89,16 +102,16 @@ export default function Portfolio() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-6 mb-10 sm:mb-14 lg:mb-16">
           <div className="max-w-[640px]">
-            <p className="section-label mb-3 sm:mb-4">Sites we made</p>
+            <p className="section-label mb-3 sm:mb-4">Live clinic websites</p>
             <h2 className="display-lg font-semibold text-ink text-balance">
-              Real projects.
+              This is how a clinic
               <br />
-              Real businesses. <em>Live.</em>
+              should look <em>online.</em>
             </h2>
           </div>
-          <p className="max-w-[360px] text-[15px] sm:text-[16px] leading-relaxed text-quiet">
-            Hover a logo to preview the live homepage — then visit the site and
-            see it for yourself.
+          <p className="max-w-[380px] text-[15px] sm:text-[16px] leading-relaxed text-quiet">
+            Hover a logo to preview the live homepage — each of these has a clear
+            Book Now path. Then open the site yourself.
           </p>
         </div>
 
@@ -116,7 +129,6 @@ export default function Portfolio() {
                 className={`relative rounded-morez overflow-hidden border border-black/10 ring-0 transition-all duration-300 ${project.tint} ${project.ring} group-hover:ring-4`}
               >
                 <div className="aspect-[16/10] relative">
-                  {/* Logo default */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 sm:p-8 transition-opacity duration-300 group-hover:opacity-0 group-hover:pointer-events-none">
                     <img
                       src={project.logo}
@@ -128,7 +140,6 @@ export default function Portfolio() {
                     </p>
                   </div>
 
-                  {/* Live homepage screenshot on hover */}
                   <div className="absolute inset-0 opacity-0 scale-[1.02] transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
                     <img
                       src={project.preview}

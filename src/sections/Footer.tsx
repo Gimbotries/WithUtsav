@@ -1,10 +1,11 @@
 import { Instagram, Linkedin, Twitter } from 'lucide-react';
+import { PHONE_DISPLAY, PHONE_TEL, EMAIL } from '../lib/contact';
 
 const footerLinks = [
+  { label: 'Why clinics', href: '#why-us' },
+  { label: 'How it works', href: '#how-it-works' },
   { label: 'Work', href: '#portfolio' },
   { label: 'Services', href: '#services' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Pricing', href: '#pricing' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -36,7 +37,18 @@ export default function Footer() {
               <span className="font-semibold text-coral">Utsav</span>
             </a>
             <p className="text-sm text-quiet leading-relaxed max-w-[280px]">
-              Complete web design packages. Delivered in 48 hours.
+              Complete clinic websites with booking and WhatsApp. Delivered in 48
+              hours.
+            </p>
+            <p className="mt-4 text-sm font-semibold text-ink">
+              <a href={`tel:${PHONE_TEL}`} className="hover:text-coral">
+                {PHONE_DISPLAY}
+              </a>
+            </p>
+            <p className="mt-1 text-sm text-quiet">
+              <a href={`mailto:${EMAIL}`} className="hover:text-coral">
+                {EMAIL}
+              </a>
             </p>
           </div>
 
@@ -85,7 +97,7 @@ export default function Footer() {
             © 2026 WorkwithUtsav. All rights reserved.
           </p>
           <p className="font-mono text-[11px] text-quiet/70 uppercase tracking-wider">
-            Made to ship fast
+            Built for clinics
           </p>
         </div>
       </div>

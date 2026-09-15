@@ -4,14 +4,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navigation from './sections/Navigation';
 import Hero from './sections/Hero';
 import Marquee from './sections/Marquee';
+import PainPoints from './sections/PainPoints';
+import ProductDemos from './sections/ProductDemos';
 import USPStrip from './sections/USPStrip';
-import Services from './sections/Services';
 import Portfolio from './sections/Portfolio';
 import Testimonials from './sections/Testimonials';
-import Pricing from './sections/Pricing';
+import Services from './sections/Services';
 import Contact from './sections/Contact';
 import Footer from './sections/Footer';
-import CursorCTA from './components/CursorCTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,15 +45,15 @@ function App() {
 
   return (
     <div className="relative overflow-x-hidden">
-      <CursorCTA />
       <Navigation />
       <Hero />
       <Marquee />
+      <ProductDemos />
+      <PainPoints />
       <USPStrip />
       <Portfolio />
       <Testimonials />
       <Services />
-      <Pricing />
       <Contact />
       <Footer />
     </div>

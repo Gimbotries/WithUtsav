@@ -1,8 +1,9 @@
 const symbols = ['❋', '❊', '❈', '✢'];
+const phrases = ['FOR CLINICS', 'BOOK ONLINE', 'WHATSAPP AUTO', 'WORKWITHUTSAV'];
 
 export default function Marquee() {
   const items = Array.from({ length: 12 }, (_, i) => ({
-    text: 'WORKWITHUTSAV',
+    text: phrases[i % phrases.length],
     symbol: symbols[i % symbols.length],
   }));
 
