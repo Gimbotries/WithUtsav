@@ -55,8 +55,8 @@ export default function Testimonials() {
       id="testimonials"
       className="bg-[#f7f7f7] py-14 sm:py-20 lg:py-28"
     >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[720px] mb-10 sm:mb-14">
+      <div className="section-shell">
+        <div className="max-w-[720px] xl:max-w-[780px] mb-10 sm:mb-14">
           <p className="section-label mb-3 sm:mb-4">From clinic owners</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
             What changed after
@@ -87,7 +87,7 @@ export default function Testimonials() {
                 </p>
               )}
 
-              <p className="mt-5 text-[15px] sm:text-[16px] lg:text-[17px] leading-relaxed text-ink mb-6">
+              <p className="mt-5 text-[15px] sm:text-[16px] lg:text-[17px] xl:text-[18px] leading-relaxed text-ink mb-6">
                 “{item.quote}”
               </p>
 

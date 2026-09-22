@@ -67,16 +67,16 @@ export default function Contact() {
 
   return (
     <section ref={sectionRef} id="contact" className="bg-ink text-white py-14 sm:py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-start">
+      <div className="section-shell">
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 xl:gap-16 items-start">
           <div data-contact className="opacity-0">
             <p className="font-mono-label text-coral mb-3 sm:mb-4">Let’s gooo !!</p>
-            <h2 className="display-lg font-semibold text-balance max-w-[560px]">
+            <h2 className="display-lg font-semibold text-balance max-w-[560px] xl:max-w-[600px]">
               Need a clinic website?
               <br />
               Let’s <em className="!text-coral">talk.</em>
             </h2>
-            <p className="mt-4 sm:mt-5 max-w-[440px] text-[15px] sm:text-[17px] leading-relaxed text-white/65">
+            <p className="mt-4 sm:mt-5 max-w-[440px] xl:max-w-[520px] text-[15px] sm:text-[17px] xl:text-[18px] leading-relaxed text-white/65">
               Submit the form and your mail app opens with our address and your
               details already filled. Click send. Or call us now.
             </p>

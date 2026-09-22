@@ -12,15 +12,15 @@ const slots = [
 export default function ProductDemos() {
   return (
     <section id="how-it-works" className="bg-[#f7f7f7] py-12 sm:py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[760px] mb-8 sm:mb-14">
+      <div className="section-shell">
+        <div className="max-w-[760px] xl:max-w-[800px] mb-8 sm:mb-14">
           <p className="section-label mb-3 sm:mb-4">How patients find and book you</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
             Search. Book. WhatsApp.
             <br />
             <em>No receptionist required.</em>
           </h2>
-          <p className="mt-4 sm:mt-5 text-[14px] sm:text-[17px] leading-relaxed text-quiet">
+          <p className="mt-4 sm:mt-5 text-[14px] sm:text-[17px] xl:text-[18px] leading-relaxed text-quiet">
             This is the flow we set up for clinics — so when someone types your name
             or specialty in your city, they land on your site, take a slot, and get
             a WhatsApp confirmation automatically.
@@ -50,7 +50,7 @@ function DemoChrome({
     <article className="bg-white rounded-morez border border-black/8 overflow-hidden flex flex-col min-h-0 sm:min-h-[460px] lg:min-h-[500px]">
       <div className="px-4 sm:px-6 pt-5 sm:pt-6 pb-3 sm:pb-4">
         <p className="font-mono-label text-coral mb-2 text-[11px] sm:text-[14px]">{label}</p>
-        <h3 className="text-lg sm:text-xl lg:text-[22px] font-semibold text-ink leading-snug">
+        <h3 className="text-lg sm:text-xl lg:text-[22px] xl:text-[24px] font-semibold text-ink leading-snug">
           {title}
         </h3>
       </div>

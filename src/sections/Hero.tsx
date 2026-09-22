@@ -56,9 +56,9 @@ export default function Hero() {
         <div className="absolute bottom-0 left-0 w-[240px] sm:w-[320px] h-[240px] sm:h-[320px] rounded-full bg-gold/20 blur-3xl" />
       </div>
 
-      <div className="relative w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-[80px] sm:pt-[100px] lg:pt-[108px] pb-10 sm:pb-14 lg:py-16">
-        <div className="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-          <div className="order-2 lg:order-1 max-w-[560px] mx-auto lg:mx-0 text-center lg:text-left">
+      <div className="relative section-shell pt-[80px] sm:pt-[100px] lg:pt-[108px] pb-10 sm:pb-14 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-7 sm:gap-10 lg:gap-12 xl:gap-14 items-center">
+          <div className="order-2 lg:order-1 w-full max-w-[560px] lg:max-w-[580px] mx-auto lg:mx-0 text-center lg:text-left">
             <p
               data-hero="brand"
               className="font-mono-label text-coral mb-3 sm:mb-4 opacity-0 text-[11px] sm:text-[14px]"
@@ -80,7 +80,7 @@ export default function Hero() {
 
             <p
               data-hero="copy"
-              className="mt-4 sm:mt-5 max-w-[480px] mx-auto lg:mx-0 text-[14px] sm:text-[16px] lg:text-[17px] leading-relaxed text-quiet opacity-0"
+              className="mt-4 sm:mt-5 max-w-[480px] mx-auto lg:mx-0 text-[14px] sm:text-[16px] lg:text-[17px] xl:text-[18px] leading-relaxed text-quiet opacity-0"
             >
               Built only for doctors and clinics. Domain, hosting, a premium site,
               online booking, and WhatsApp confirmations — handled for you. No
@@ -107,7 +107,7 @@ export default function Hero() {
 
           <div
             data-hero="image"
-            className="relative order-1 lg:order-2 opacity-0 w-full max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[380px] xl:max-w-[400px] mx-auto"
+            className="relative order-1 lg:order-2 opacity-0 w-full max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[400px] xl:max-w-[440px] mx-auto lg:ml-auto lg:mr-0"
           >
             <div className="rounded-morez overflow-hidden border border-black/10 bg-[#f3f3f3] shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
               <img

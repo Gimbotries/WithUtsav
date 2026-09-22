@@ -40,7 +40,7 @@ export default function Navigation() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-[64px] sm:h-[76px] lg:h-[88px] flex items-center justify-between gap-3">
+      <nav className="section-shell h-[64px] sm:h-[76px] lg:h-[88px] flex items-center justify-between gap-3">
         <a
           href="#"
           className="text-[20px] sm:text-[24px] lg:text-[28px] tracking-tight shrink-0"

@@ -99,9 +99,9 @@ export default function Portfolio() {
 
   return (
     <section ref={sectionRef} id="portfolio" className="bg-paper py-14 sm:py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 lg:gap-6 mb-10 sm:mb-14 lg:mb-16">
-          <div className="max-w-[640px]">
+          <div className="max-w-[640px] xl:max-w-[700px]">
             <p className="section-label mb-3 sm:mb-4">Live clinic websites</p>
             <h2 className="display-lg font-semibold text-ink text-balance">
               This is how a clinic
@@ -109,7 +109,7 @@ export default function Portfolio() {
               should look <em>online.</em>
             </h2>
           </div>
-          <p className="max-w-[380px] text-[15px] sm:text-[16px] leading-relaxed text-quiet">
+          <p className="max-w-[380px] xl:max-w-[460px] text-[15px] sm:text-[16px] xl:text-[17px] leading-relaxed text-quiet">
             Hover a logo to preview the live homepage — each of these has a clear
             Book Now path. Then open the site yourself.
           </p>

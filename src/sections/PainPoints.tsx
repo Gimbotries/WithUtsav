@@ -70,7 +70,7 @@ export default function PainPoints() {
 
   return (
     <section ref={sectionRef} id="why-us" className="bg-paper py-14 sm:py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-6 lg:gap-16 mb-10 sm:mb-14">
           <p className="section-label">What clinics tell us on the call</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
@@ -94,7 +94,7 @@ export default function PainPoints() {
               <h3 className="display-md font-semibold text-ink mb-3 sm:mb-4">
                 {pain.title}
               </h3>
-              <p className="text-[15px] sm:text-[17px] leading-relaxed text-quiet">
+              <p className="text-[15px] sm:text-[17px] xl:text-[18px] leading-relaxed text-quiet">
                 {pain.description}
               </p>
             </article>

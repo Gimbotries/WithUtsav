@@ -62,15 +62,15 @@ export default function Services() {
 
   return (
     <section ref={sectionRef} id="services" className="bg-[#f7f7f7] py-14 sm:py-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-[720px] mb-10 sm:mb-14 lg:mb-16">
+      <div className="section-shell">
+        <div className="max-w-[720px] xl:max-w-[780px] mb-10 sm:mb-14 lg:mb-16">
           <p className="section-label mb-3 sm:mb-4">What we do best</p>
           <h2 className="display-lg font-semibold text-ink text-balance">
             Built for clinics,
             <br />
             <em>not for everyone.</em>
           </h2>
-          <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] leading-relaxed text-quiet">
+          <p className="mt-4 sm:mt-5 text-[15px] sm:text-[17px] xl:text-[18px] leading-relaxed text-quiet">
             From a clean practice page to payments, logins, and WhatsApp booking —
             we handle the full stack so your online presence matches the care you
             give in the room.
@@ -88,7 +88,7 @@ export default function Services() {
               <h3 className={`text-xl sm:text-2xl lg:text-[28px] font-semibold mb-3 ${service.accent}`}>
                 {service.title}
               </h3>
-              <p className="text-[15px] sm:text-[16px] leading-relaxed text-quiet mb-5 sm:mb-6">
+              <p className="text-[15px] sm:text-[16px] xl:text-[17px] leading-relaxed text-quiet mb-5 sm:mb-6">
                 {service.description}
               </p>
               <a
